@@ -1,0 +1,102 @@
+class CodigoDeConduta:
+    def __init__(self, nome):
+        self.nome = nome
+        self.frequencia_minima = 75
+        self.participacao_ativa = True
+        self.entrega_qualidade = True
+        self.comportamento_etico = True
+        self.uso_responsavel_ia = True
+        self.bom_comportamento = True
+        self.uso_positivo_conhecimentos = True
+    
+    def verificar_frequencia(self, frequencia):
+        if frequencia < self.frequencia_minima:
+            return f"{self.nome}, você será reprovado por não atingir a frequência mínima de {self.frequencia_minima}%."
+        else:
+            return f"{self.nome}, sua frequência está adequada."
+    
+    def verificar_participacao(self, participa):
+        if not participa:
+            return f"{self.nome}, você deve participar ativamente das aulas."
+        else:
+            return f"{self.nome}, obrigado por sua participação ativa."
+    
+    def verificar_entrega(self, qualidade):
+        if not qualidade:
+            return f"{self.nome}, você deve entregar suas atividades com qualidade."
+        else:
+            return f"{self.nome}, suas entregas estão de acordo com os padrões de qualidade."
+    
+    def verificar_trabalho_ia(self, copiado):
+        if copiado:
+            return f"{self.nome}, você deve refazer o trabalho ou terá a nota zerada por entregar trabalho copiado da IA."
+        else:
+            return f"{self.nome}, suas entregas estão adequadas."
+    
+    def verificar_trabalho_colega(self, plagiado):
+        if plagiado:
+            return f"{self.nome}, não solicite trabalho do colega para entregar como se fosse seu. Sua nota será zerada."
+        else:
+            return f"{self.nome}, suas entregas estão adequadas."
+    
+    def verificar_comprometimento(self, comprometido):
+        if not comprometido:
+            return f"{self.nome}, comprometa-se com seus estudos para não comprometer sua aprovação e recebimento do certificado."
+        else:
+            return f"{self.nome}, seu comprometimento é exemplar."
+    
+    def verificar_comportamento_etico(self, etico):
+        if not etico:
+            return f"{self.nome}, você deve manter um comportamento ético e responsável para concluir o curso e receber o diploma."
+        else:
+            return f"{self.nome}, seu comportamento ético é exemplar."
+    
+    def verificar_uso_ia(self, uso_responsavel):
+        if not uso_responsavel:
+            return f"{self.nome}, use os recursos de IA de forma responsável e não para praticar atos ilícitos."
+        else:
+            return f"{self.nome}, seu uso da IA é responsável."
+    
+    def verificar_comportamento_geral(self, bom_comportamento):
+        if not bom_comportamento:
+            return f"{self.nome}, mantenha um bom comportamento com colegas, professores e demais funcionários da escola."
+        else:
+            return f"{self.nome}, seu comportamento é exemplar."
+    
+    def verificar_uso_conhecimentos(self, uso_positivo):
+        if not uso_positivo:
+            return f"{self.nome}, use seus conhecimentos para o bem e para agregar valor à comunidade escolar."
+        else:
+            return f"{self.nome}, seu uso dos conhecimentos é exemplar."
+    
+    def verificar_todos(self, frequencia, participa, qualidade, copiado, plagiado, comprometido, etico, uso_responsavel, bom_comportamento, uso_positivo):
+        resultados = [
+            self.verificar_frequencia(frequencia),
+            self.verificar_participacao(participa),
+            self.verificar_entrega(qualidade),
+            self.verificar_trabalho_ia(copiado),
+            self.verificar_trabalho_colega(plagiado),
+            self.verificar_comprometimento(comprometido),
+            self.verificar_comportamento_etico(etico),
+            self.verificar_uso_ia(uso_responsavel),
+            self.verificar_comportamento_geral(bom_comportamento),
+            self.verificar_uso_conhecimentos(uso_positivo)
+        ]
+        return "\n".join(resultados)
+
+# Exemplo de uso:
+aluno = CodigoDeConduta("João")
+resultado = aluno.verificar_todos(
+    frequencia=80,
+    participa=True,
+    qualidade=True,
+    copiado=False,
+    plagiado=False,
+    comprometido=True,
+    etico=True,
+    uso_responsavel=True,
+    bom_comportamento=True,
+    uso_positivo=True
+)
+
+print(resultado)
